@@ -1,0 +1,14 @@
+*current_search_match.txt*  Highlights the current search match
+
+Author: Andrew Stewart <https://airbladesoftware.com>
+Licence: MIT
+
+
+Highlights the current search match.  Uses the |hl-PmenuSel| highlight group by
+default.  To use a different highlight:
+
+1. Type |:hi| and find one you like, e.g. `Visual`.
+2. Put `let g:current_search_match = 'Visual'` in your vimrc/init.vim.
+
+
+  vim:tw=78:et:ft=help:norl:
