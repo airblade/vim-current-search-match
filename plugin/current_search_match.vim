@@ -19,7 +19,7 @@ function! s:delete_current_match()
   if !s:match | return | endif
   let winid = s:pos[3]
   if winbufnr(winid) == -1 | return | endif
-  if !has('nvim') || has('nvim-0.5.0')
+  if has('patch-8.1.1084') || has('nvim-0.5.0')
     call matchdelete(s:match, winid)
   else
     let jumped = 0
