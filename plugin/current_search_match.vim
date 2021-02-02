@@ -19,7 +19,19 @@ function! s:delete_current_match()
   if !s:match | return | endif
   let winid = s:pos[3]
   if winbufnr(winid) == -1 | return | endif
-  call matchdelete(s:match, winid)
+  if !has('nvim') || has('nvim-0.5.0')
+    call matchdelete(s:match, winid)
+  else
+    let jumped = 0
+    if winid != win_getid()
+      noautocmd call win_gotoid(winid)
+      let jumped = 1
+    endif
+    call matchdelete(s:match)
+    if jumped
+      noautocmd wincmd p
+    endif
+  endif
 endfunction
 
 
