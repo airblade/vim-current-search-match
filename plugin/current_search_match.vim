@@ -23,13 +23,9 @@ function! s:delete_current_match()
     call matchdelete(s:match, winid)
   else
     let same_win = winid == win_getid()
-    if !same_win
-      noautocmd call win_gotoid(winid)
-    endif
+    if !same_win | noautocmd call win_gotoid(winid) | endif
     call matchdelete(s:match)
-    if !same_win
-      noautocmd wincmd p
-    endif
+    if !same_win | noautocmd wincmd p | endif
   endif
 endfunction
 
