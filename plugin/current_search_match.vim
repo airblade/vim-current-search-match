@@ -22,13 +22,12 @@ function! s:delete_current_match()
   if has('patch-8.1.1084') || has('nvim-0.5.0')
     call matchdelete(s:match, winid)
   else
-    let jumped = 0
-    if winid != win_getid()
+    let same_win = winid == win_getid()
+    if !same_win
       noautocmd call win_gotoid(winid)
-      let jumped = 1
     endif
     call matchdelete(s:match)
-    if jumped
+    if !same_win
       noautocmd wincmd p
     endif
   endif
