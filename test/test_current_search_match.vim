@@ -55,9 +55,11 @@ endfunction
 function Test_clears_matches_in_correct_window()
   execute "normal! /at\<CR>"
   doautocmd CursorMoved
-  let win = win_getid()
+  let win = winnr()
 
   split
+  wincmd j
+  call assert_notequal(win, winnr())  " sanity
   doautocmd CursorMoved
 
   call assert_equal(0, len(getmatches(win)))
