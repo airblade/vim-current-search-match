@@ -63,6 +63,7 @@ function Test_clears_matches_in_correct_window()
   doautocmd CursorMoved
 
   call assert_equal(0, len(getmatches(win)))
+  call assert_equal(1, len(getmatches()))
 endfunction
 
 
