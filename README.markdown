@@ -1,5 +1,7 @@
 # current_search_match.vim
 
+Update: Vim [8.2.4724](https://github.com/vim/vim/commit/a43993897aa372159f682df37562f159994dc85c) finally added this feature.
+
 Highlights the current search match.
 
 Uses the `PmenuSel` highlight group by default.  To use a different highlight:

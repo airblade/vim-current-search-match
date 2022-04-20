@@ -3,6 +3,7 @@
 Author: Andrew Stewart <https://airbladesoftware.com>
 Licence: MIT
 
+Update: Vim 8.2.4724 added this feature: see |hl-CurSearch|.
 
 Highlights the current search match.  Uses the |hl-PmenuSel| highlight group by
 default.  To use a different highlight:
